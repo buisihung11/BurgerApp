@@ -112,15 +112,7 @@ class ContactData extends Component {
       price: this.props.totalPrice, //need to recalulate on the server in real-app
       orderData: formData
     };
-
-    this.props.onOrderBurger(order);
-    // axios
-    //   .post("/orders.json", order)
-    //   .then(res => {
-    //     this.setState({ loading: false });
-    //     this.props.history.push("/");
-    //   })
-    //   .catch(err => this.setState({ loading: false }));
+    this.props.onOrderBurger(order,this.props.token);
   };
 
   checkValidity = (value, rules) => {
@@ -136,6 +128,15 @@ class ContactData extends Component {
     if (rules.maxLength) {
       isValid = value.trim().length <= rules.minLength && isValid;
     }
+    if (rules.isEmail) {
+      const pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+      isValid = pattern.test(value) && isValid
+  }
+
+  if (rules.isNumeric) {
+      const pattern = /^\d+$/;
+      isValid = pattern.test(value) && isValid
+  }
 
     return isValid;
   };
@@ -206,14 +207,15 @@ const mapStateToProps = state => {
   return {
     ings: state.burgerBuilder.ingredients,
     totalPrice: state.burgerBuilder.totalPrice,
-    loading: state.order.loading
+    loading: state.order.loading,
+    token: state.auth.token
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onOrderBurger: orderData => {
-      dispatch(actions.purchaseBurger(orderData));
+    onOrderBurger: (orderData,token) => {
+      dispatch(actions.purchaseBurger(orderData,token));
     }
   };
 };

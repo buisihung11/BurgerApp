@@ -11,7 +11,7 @@ const toolbar = props => {
       <DrawerToggle clicked={props.drawToglleClicked} />
       <Logo height="80%" />
       <nav className="DesktopOnly">
-        <NavigationItems />
+        <NavigationItems isAuthenticated={props.isAuth}/>
       </nav>
     </header>
   );
