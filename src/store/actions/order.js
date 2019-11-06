@@ -36,6 +36,24 @@ export const purchaseBurger = orderData => {
   };
 };
 
+export const fetchOrderStart = () => {
+  return dispatch => {
+    dispatch({ type: actionTypes.FETCH_ORDER_START });
+    axios
+      .get("/orders.json")
+      .then(res => {
+        const orders = [];
+        for (let key in res.data) {
+          orders.push({ ...res.data[key], id: key });
+        }
+        dispatch({ type: actionTypes.FETCH_ORDER_SUCCESS, orders });
+      })
+      .catch(err => {
+        dispatch({ type: actionTypes.FETCH_ORDER_FAIL });
+      });
+  };
+};
+
 export const purchaseInit = () => {
   return {
     type: actionTypes.PURCHASE_INIT
