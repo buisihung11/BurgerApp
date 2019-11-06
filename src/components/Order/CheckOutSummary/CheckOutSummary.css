@@ -1,0 +1,11 @@
+.CheckoutSummary {
+  text-align: center;
+  width: 90%;
+  margin: auto;
+}
+
+@media (min-width: 600px) {
+  .CheckoutSummary {
+    min-width: 500px;
+  }
+}
