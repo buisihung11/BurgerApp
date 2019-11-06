@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import * as actions from "../../store/actions/index";
 import { connect } from "react-redux";
-import Aux from "../../hoc/Auxalary/Aux";
+import Aux from "../../hoc/Auxalary/Auxalary";
 import Burger from "../../components/Burger/Burger";
 import BuildControls from "../../components/Burger/BuildControls/BuildControls";
 import Modal from "../../components/UI/Modal/Modal";
