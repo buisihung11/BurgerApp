@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import CheckoutSummary from "../../components/Order/CheckOutSummary/CheckOutSummary";
 import { Route, Redirect } from "react-router-dom";
 import ContactData from "./ContactData/ContactData";
-import * as actions from "../../store/actions/index";
 class Checkout extends Component {
   // componentWillMount() {
   //   const query = new URLSearchParams(this.props.location.search);

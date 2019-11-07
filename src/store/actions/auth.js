@@ -58,11 +58,11 @@ export const auth = (email, password,isSignUp) => {
                 localStorage.setItem('userId',res.data.localId)
                 dispatch(authSuccess(res.data.idToken,res.data.localId))
                 dispatch(checkExperitionToken(res.data.expiresIn))
-                console.log(res)
+                // console.log(res)
             })
             .catch(err => {
                 dispatch(authFail(err.response.data.error))
-                console.log(err)
+                // console.log(err)
             })
     }
 }
