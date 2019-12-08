@@ -1,11 +1,7 @@
-This repository 
-
-I used #React to build an SPA and #Firebase as my database.
-I also used Firebase to deploy my web application.
 # React Burger Order
 
 An SPA which can let you choose ingredients and order an burger. 
-
+[Link to project](https://react-burger-app-6026f.firebaseapp.com/)
 
 ## Getting Started
 
