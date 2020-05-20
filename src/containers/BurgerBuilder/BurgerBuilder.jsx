@@ -116,7 +116,7 @@ export class BurgerBuilder extends Component {
         >
           {orderSummary}
         </Modal>
-        <h1>Hello Worlds</h1>
+        <h1>Hello Worlds, build your burger</h1>
         {burger}
       </Aux>
     );
