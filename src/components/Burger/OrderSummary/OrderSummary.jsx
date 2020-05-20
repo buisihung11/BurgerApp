@@ -8,18 +8,26 @@ class OrderSummary extends Component {
   }
 
   render() {
-    const ingredientSummary = Object.keys(this.props.ingredients).map(igKey => {
-      return (
-        <li key={igKey}>
-          <span style={{ textTransform: "capitalize" }}>{igKey}</span> :{" "}
-          {this.props.ingredients[igKey]}
-        </li>
-      );
-    });
+    const ingredientSummary = Object.keys(this.props.ingredients).map(
+      (igKey) => {
+        return (
+          <li key={igKey}>
+            <span style={{ textTransform: "capitalize" }}>{igKey}</span> :{" "}
+            {this.props.ingredients[igKey]}
+          </li>
+        );
+      }
+    );
     return (
       <Aux>
         <h3>Your order</h3>
-        <p>A delicious 🍔 with the following ingredients</p>
+        <p>
+          A delicious{" "}
+          <span role="img" aria-label="hamberger">
+            🍔
+          </span>{" "}
+          with the following ingredients
+        </p>
         <ul>{ingredientSummary}</ul>
         <p>
           Total Price: <strong>{this.props.price.toFixed(2)}</strong>
